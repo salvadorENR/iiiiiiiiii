@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+Problema 1
+
+a) La principal ventaja es que se trata de un software libre que permite utilizarse sin costo sin necesidad de cracks y por tanto sin problemas legales al tratarse de alguna organizacion, utiliza menos recursos y posee una mayor riqueza de analisis. Otra de sus ventajas es que al tratarse de un software libre son muchas mas las  personas que se encuentran dedicadas a realizar modificaciones en codigo por lo que cualquier nuevo analisis que se requiera estara disponible mucho antes que en algun software de pago. Otra ventaja importante consiste en que el usuario tiene una gran libertad para originar codigos de acuerdo a sus necesidades, permite una generacion inmediata de documentos en PDF y cuenta con complementos que ademas permiten realizar modificaciones en tiempo real junto a otros usuarios sin necesidad de estar en el mismo lugar
+
+b) Version actual: 3.2.2 nombre: Fire Safety  
+Version anterior: 3.2.1  nombre:  World-Famous Astronaut
+Version siguiente: no estaba en la página (?)
+
+c) CRAN sigue ciclos de un año para liberar una nueva versión, la versión se identifica con 3 números, cada año cambia el número central
+3.0.0 2013
+3.1.0 2014
+3.2.0 2015
+3.3.0 para 2016
+El último número identifica actualizaciones que no son tan grandes, las funcionalidades de la nueva también se ejecutan en la anterior, no necesariamente ocurre problema.
+
+<<>>=
+#Problema 2
+A <- matrix(c(1, 2, 2, 1, 3, 4), nrow=2, ncol=3); A
+B <- matrix(c(1, 2, 3, 0, 1, 2), nrow=3, ncol=2); B
+C <- matrix(c(3, 4, 2, -1, 1, 1, 3, 5, 3), nrow=3, ncol=3); C
+D <- matrix(c(3, 2, -2, 4), nrow=2, ncol=2); D
+E <- matrix(c(2, 0, 3, -4, 1, 2, 5, 4, 1), nrow=3, ncol=3); E
+F <- matrix(c(-4, 2, 5, 3), nrow=2, ncol=2); F
+O <- matrix(c(0), nrow=3, ncol=3); O
+@
+
+<<>>=
+C+E
+@
+<<>>=
+E+C
+@
+
+A+B
+
+
+<<>>=
+D-F
+@
+
+<<>>=
+-3*C+5*O
+@
+
+<<>>=
+2*C-3*E
+@
+
+2*B+F
+
+
+<<>>=
+#Problema 3
+A <- matrix(c(2, 3, 4, 3, 2, 1, 4, 2, 6, 3, 5, 4), nrow=3, ncol=4); A
+B <- matrix(c(20, 28, 30, 40, 12, 15, 12, 16, 8, 15, 10, 20), nrow=4, ncol=3); B
+A%*% B
+@
+
+<<>>=
+#Problema 4
+library(XML)
+u= "http://www.jaredlander.com/2012/02/another-kind-of-super-bowl-pool/"
+tabla.fea<- readHTMLTable(u)
+tabla.fea
+@
+
+<<>>=
+#Problema 5
+u= "http://www.jaredlander.com/data/Tomato%20First.csv"
+tabla.fea2 <- read.csv(u)
+tabla.fea2
+@
+
+<<>>=
+#Problema 6
+Var1<- tabla.fea2$Tomato
+Var2<- tabla.fea2$Sweet
+Var3<- tabla.fea2$Acid
+Var4<- tabla.fea2$Texture
+@
+
+<<>>=
+#Problema 7
+library(foreign)
+empresas <- read.spss("empresas.sav", to.data.frame = TRUE)
+empresas
+AGR<- empresas$AGR; AGR
+CEN<- empresas$CEN; CEN
+BAN<- empresas$BAN; BAN
+TC<- empresas$TC; TC
+summary(AGR)
+summary(CEN)
+summary(BAN)
+summary(TC)
+@
+
+<<>>=
+#Problema 8
+coches <- read.table("coches.csv", header = TRUE, sep = ",")
+coches
+@
+
+<<>>=
+#Problema 10
+Serie3 <- read.table("serie3.txt", header=T);Serie3
+@
+
+\end{document}
